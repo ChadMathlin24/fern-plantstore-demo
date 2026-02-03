@@ -57,20 +57,6 @@ paths:
         - plant
       summary: Add a new plant to the store
       operationId: addPlant
-      x-fern-examples:
-        - name: Create a plant
-          request:
-            body:
-              name: Fern
-              category: Indoor
-              tags: ["green", "leafy"]
-              status: available
-          response:
-            body:
-              id: 101
-              name: Fern
-              status: available
-              tags: ["green", "leafy"]
       requestBody:
         description: Details of the plant to add
         required: true
@@ -103,6 +89,7 @@ paths:
                     tags: ["green", "leafy"]
         "405":
           description: Invalid input
+
     put:
       tags:
         - plant
@@ -142,6 +129,7 @@ paths:
           description: Invalid ID supplied
         "404":
           description: Plant not found
+
   /plant/search/status:
     get:
       tags:
@@ -178,6 +166,7 @@ paths:
                       name: "Palm"
                       status: "available"
                       tags: ["tropical"]
+
   /plant/search/tags:
     get:
       tags:
@@ -214,6 +203,7 @@ paths:
                       name: "Cactus"
                       status: "available"
                       tags: ["spiky", "desert"]
+
   /plant/{plantId}:
     get:
       tags:
@@ -243,6 +233,7 @@ paths:
                     name: "Fern"
                     status: "available"
                     tags: ["green", "leafy"]
+
   /user/auth/login:
     get:
       tags:
@@ -278,6 +269,7 @@ paths:
                   value:
                     token: "abc123token"
                     expiresIn: 3600
+
   /user/auth/logout:
     get:
       tags:
@@ -287,6 +279,7 @@ paths:
       responses:
         default:
           description: Successful logout
+
   /user/{username}:
     get:
       tags:
@@ -313,8 +306,9 @@ paths:
                   summary: User details response
                   value:
                     id: 1
-                    username: "john_doe"
-                    email: "john@example.com"
+                    username: "chad_mathlin"
+                    email: "chadn522@gmail.com"
+
 webhooks:
   plant.created:
     post:
@@ -336,17 +330,6 @@ webhooks:
                   format: date-time
                 data:
                   $ref: "#/components/schemas/PlantResponse"
-            examples:
-              example:
-                summary: Example webhook payload
-                value:
-                  event: plant.created
-                  timestamp: "2026-02-02T19:00:00Z"
-                  data:
-                    id: 101
-                    name: Fern
-                    status: available
-                    tags: ["green", "leafy"]
       responses:
         "200":
           description: Webhook processed successfully
