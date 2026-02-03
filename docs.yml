@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 
 instances:
-  - url: chad-mathlin-demo.docs.buildwithfern.com
+  - url: https://chad-mathlin-demo.docs.buildwithfern.com
 
 title: Chad Mathlin Demo | Documentation
 
